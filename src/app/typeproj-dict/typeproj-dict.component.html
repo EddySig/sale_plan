@@ -2,11 +2,17 @@
 <clr-datagrid>
   <clr-dg-column >Код</clr-dg-column>
   <clr-dg-column>Наименование</clr-dg-column>
+  <clr-dg-column></clr-dg-column>
 
   <clr-dg-row *ngFor="let type of typeprojs" >
     <clr-dg-cell>{{type.code}}</clr-dg-cell>
     <clr-dg-cell>{{type.name}}</clr-dg-cell>
-
+    <clr-dg-cell>
+      <div style="float:right" class="btn-group btn-primary ">
+        <button class="btn "><clr-icon shape="cog"></clr-icon></button>
+        <button class="btn btn-danger"> <clr-icon shape="error-standard"></clr-icon></button>
+      </div>
+    </clr-dg-cell>
   </clr-dg-row>
 
 
