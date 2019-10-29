@@ -7,12 +7,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavComponent } from './nav/nav.component';
 import { AppRoutingModule } from './app-routing.module';
 import { ClientsDictComponent } from './clients-dict/clients-dict.component';
+import { TypeprojDictComponent } from './typeproj-dict/typeproj-dict.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavComponent,
-    ClientsDictComponent
+    ClientsDictComponent,
+    TypeprojDictComponent
   ],
   imports: [
     BrowserModule,

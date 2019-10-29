@@ -6,7 +6,7 @@ export const dictionary = [
   },
   {
     name: 'Тип проекта',
-    link: '#',
+    link: '/typeproj',
     description: 'Справочник типов проектов'
   },
   {
