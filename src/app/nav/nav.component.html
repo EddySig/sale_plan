@@ -1,0 +1,18 @@
+<nav class="sidenav">
+
+    <section class="nav-group collapsible">
+      <input id="tabexample1" type="checkbox">
+      <label for="tabexample1">Справочники</label>
+      <ul class="nav-list" >
+        <li *ngFor="let dict of dictionary"><a class="nav-link">{{dict.name}}</a></li>
+      </ul>
+    </section>
+    <section class="nav-group collapsible">
+      <input id="tabexample2" type="checkbox">
+      <label for="tabexample2">Планы</label>
+      <ul class="nav-list" >
+        <li *ngFor="let plan of plans" ><a class="nav-link">{{plan.name}}</a></li>
+      </ul>
+    </section>
+
+</nav>
