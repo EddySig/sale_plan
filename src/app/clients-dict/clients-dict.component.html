@@ -1,0 +1,13 @@
+<h2 style="margin-top:0;">Клиенты</h2>
+<clr-datagrid>
+  <clr-dg-column >Код</clr-dg-column>
+  <clr-dg-column>Наименование</clr-dg-column>
+
+  <clr-dg-row *ngFor="let client of client" >
+    <clr-dg-cell>{{client.code}}</clr-dg-cell>
+    <clr-dg-cell>{{client.name}}</clr-dg-cell>
+
+  </clr-dg-row>
+
+  <clr-dg-footer>3 users</clr-dg-footer>
+</clr-datagrid>

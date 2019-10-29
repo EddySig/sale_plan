@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DictionaryComponent } from './dictionary.component';
+import { ClientsDictComponent } from './clients-dict.component';
 
-describe('DictionaryComponent', () => {
-  let component: DictionaryComponent;
-  let fixture: ComponentFixture<DictionaryComponent>;
+describe('ClientsDictComponent', () => {
+  let component: ClientsDictComponent;
+  let fixture: ComponentFixture<ClientsDictComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ DictionaryComponent ]
+      declarations: [ ClientsDictComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(DictionaryComponent);
+    fixture = TestBed.createComponent(ClientsDictComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

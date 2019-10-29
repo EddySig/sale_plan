@@ -1,7 +1,7 @@
 export const dictionary = [
   {
     name: 'Клиенты',
-    link: '#',
+    link: '/client',
     description: 'Справочник клиентов'
   },
   {
