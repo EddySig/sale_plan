@@ -9,18 +9,19 @@ import {Client} from '../core';
 })
 export class ClientsDictComponent implements OnInit {
   clients;
-  constructor(
-    private clientService: ClientDctServService
-  ) { this.clients = clientService.getList(); }
   editModal = false;
   removeModal = false;
   edit: Client = { id: 0, code: '', name: '' } as Client;
+  constructor(
+    private clientService: ClientDctServService
+  ) { this.clients = clientService.getList(); }
+
   ngOnInit() {
   }
 
   openDialog(clientId = 0): void {
-    const client = this.clientService.get(clientId);
-    if( client !== undefined){
+    var client = this.clientService.get(clientId);
+    if (client !== undefined) {
       this.edit = this.clientService.get(clientId);
     }
 
@@ -30,6 +31,7 @@ export class ClientsDictComponent implements OnInit {
   closeDialog(): void {
     this.editModal = false;
     this.removeModal = false;
+    this.edit = { id: 0, code: '', name: '' };
   }
   confirmCloseDialog(): void {
     this.removeModal = true;
