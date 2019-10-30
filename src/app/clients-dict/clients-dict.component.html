@@ -1,15 +1,22 @@
 <h2 style="margin-top:0;">Клиенты</h2>
+<div  class="btn-group btn-primary ">
+  <button class="btn " (click)="openDialog()"><clr-icon shape="cog"></clr-icon></button>
+</div>
+
 <clr-datagrid>
   <clr-dg-column >Код</clr-dg-column>
-  <clr-dg-column>Наименование</clr-dg-column>
+  <clr-dg-column>Наименование
+
+
+    </clr-dg-column>
   <clr-dg-column></clr-dg-column>
 
-  <clr-dg-row *ngFor="let client of client" >
+  <clr-dg-row *ngFor="let client of clients" >
     <clr-dg-cell>{{client.code}}</clr-dg-cell>
     <clr-dg-cell>{{client.name}}</clr-dg-cell>
     <clr-dg-cell>
       <div style="float:right" class="btn-group btn-primary ">
-        <button class="btn "><clr-icon shape="cog"></clr-icon></button>
+        <button class="btn " (click)="openDialog(client.id)"><clr-icon shape="cog"></clr-icon></button>
         <button class="btn btn-danger"> <clr-icon shape="error-standard"></clr-icon></button>
       </div>
     </clr-dg-cell>
@@ -18,3 +25,28 @@
 
 
 </clr-datagrid>
+
+<clr-modal [(clrModalOpen)]="editModal" [clrModalClosable]="false">
+  <h3 class="modal-title"  *ngIf="edit.id">Редиктирование клиента</h3>
+  <h3 class="modal-title"  *ngIf="!edit.id">Добавление клиента</h3>
+  <div class="modal-body">
+  <form clrForm>
+    <clr-input-container>
+      <input clrInput type="hidden" [(ngModel)]="edit.id" name="client_id"/>
+      <label style="margin-right: 15px">Код:</label>
+      <input clrInput  type="text" [(ngModel)]="edit.code" name="client_code"  placeholder="Введите Код"/>
+    </clr-input-container>
+    <clr-input-container>
+      <label style="margin-right: 15px">Наименование:</label>
+      <input clrInput  type="text" [(ngModel)]="edit.name" name="client_name"  placeholder="Введите Наименование"/>
+    </clr-input-container>
+  </form>
+  </div>
+
+
+
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline" (click)="closeDialog()">Cancel</button>
+    <button type="button" class="btn btn-primary" >Save</button>
+  </div>
+</clr-modal>

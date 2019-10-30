@@ -8,6 +8,7 @@ import { NavComponent } from './nav/nav.component';
 import { AppRoutingModule } from './app-routing.module';
 import { ClientsDictComponent } from './clients-dict/clients-dict.component';
 import { TypeprojDictComponent } from './typeproj-dict/typeproj-dict.component';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { TypeprojDictComponent } from './typeproj-dict/typeproj-dict.component';
     BrowserModule,
     ClarityModule,
     BrowserAnimationsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

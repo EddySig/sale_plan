@@ -1,16 +1,38 @@
 import { Component, OnInit } from '@angular/core';
 
-import {clients} from 'src/app/clients-dict/clients';
+import {ClientDctServService} from 'src/app/clients-dict/services/client-dct-serv.service';
+import {Client} from '../core';
 @Component({
   selector: 'app-clients-dict',
   templateUrl: './clients-dict.component.html',
   styleUrls: ['./clients-dict.component.css']
 })
 export class ClientsDictComponent implements OnInit {
-  client = clients;
-  constructor() { }
-
+  clients;
+  constructor(
+    private clientService: ClientDctServService
+  ) { this.clients = clientService.getList(); }
+  editModal = false;
+  removeModal = false;
+  edit: Client = { id: 0, code: '', name: '' } as Client;
   ngOnInit() {
+  }
+
+  openDialog(clientId = 0): void {
+    const client = this.clientService.get(clientId);
+    if( client !== undefined){
+      this.edit = this.clientService.get(clientId);
+    }
+
+    this.editModal = true;
+
+  }
+  closeDialog(): void {
+    this.editModal = false;
+    this.removeModal = false;
+  }
+  confirmCloseDialog(): void {
+    this.removeModal = true;
   }
 
 }
