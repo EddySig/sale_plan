@@ -53,4 +53,7 @@ export class SpecDictComponent implements OnInit {
   getTypesList() {
     return this.specService.getTypes();
   }
+  getSpecList() {
+    return this.specService.getSpec();
+  }
 }

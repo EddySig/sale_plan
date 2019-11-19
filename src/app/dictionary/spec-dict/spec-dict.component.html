@@ -31,17 +31,19 @@
 </clr-datagrid>
 
 <clr-modal [(clrModalOpen)]="editModal" [clrModalClosable]="false">
-  <h3 class="modal-title"  *ngIf="edit.project_id">Редиктирование клиента</h3>
-  <h3 class="modal-title"  *ngIf="!edit.project_id">Добавление клиента</h3>
+  <h3 class="modal-title"  *ngIf="edit.specialist_id">Редиктирование клиента</h3>
+  <h3 class="modal-title"  *ngIf="!edit.specialist_id">Добавление клиента</h3>
   <div class="modal-body">
 
     <form clrForm>
       <span class="clr-sr-only">Tabbing through form inputs will trigger validation messages to be read aloud.</span>
-      <clr-input-container>
-        <label >Наименование:</label>
-        <input style="margin-light: 50px;" clrInput type="text" value="{{edit.project_name}}"  name="project_name" required />
-        <clr-control-error>We need your first name for legal compliance</clr-control-error>
-      </clr-input-container>
+
+      <clr-select-container>
+        <label>Роль на проекте:</label>
+        <select clrSelect name="specialtytype_id" class="clr-select" [(ngModel)]="edit.specialtytype_id">
+          <option *ngFor="let type of getSpecList()" [value]="type.id">{{type.name}}</option>
+        </select>
+      </clr-select-container>
       <clr-select-container>
         <label>Тип проекта:</label>
         <select clrSelect name="projecttype_id" class="clr-select" [(ngModel)]="edit.projecttype_id">
@@ -49,13 +51,17 @@
         </select>
       </clr-select-container>
       <clr-input-container>
-        <label >Вероятность реализации:</label>
-        <input clrInput  type="text" [(ngModel)]="edit.project_realizprob" name="project_realizprob"  placeholder="Введите вероятность реализации"/>
+        <label >Доля в проектной трудоемкости:</label>
+        <input clrInput  type="text" [(ngModel)]="edit.specialist_part" name="specialist_part"  placeholder="Введите вероятность реализации"/>
       </clr-input-container>
       <clr-input-container>
-        <label >Коэфициент трудоемкости:</label>
-        <input clrInput  type="text" [(ngModel)]="edit.project_laborcoef" name="project_laborcoef"  placeholder="Введите коэфициент трудоемкости"/>
+        <label >Численность:</label>
+        <input clrInput  type="text" [(ngModel)]="edit.specialist_quantity" name="specialist_quantity"  placeholder="Введите коэфициент трудоемкости"/>
       </clr-input-container>
+      <clr-date-container>
+        <label >Период начала действия:</label>
+        <input type="date" clrDate name="period" [(ngModel)]="edit.period">
+      </clr-date-container>
     </form>
   </div>
 
