@@ -6,23 +6,32 @@ import { ClarityModule } from '@clr/angular';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavComponent } from './nav/nav.component';
 import { AppRoutingModule } from './app-routing.module';
-import { ClientsDictComponent } from './clients-dict/clients-dict.component';
-import { TypeprojDictComponent } from './typeproj-dict/typeproj-dict.component';
-import {FormsModule} from '@angular/forms';
+import { ClientsDictComponent } from './dictionary/clients-dict/clients-dict.component';
+import { TypeprojDictComponent } from './dictionary/typeproj-dict/typeproj-dict.component';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { AutorizationComponent } from './autorization/autorization.component';
+import { RoleDictComponent } from './dictionary/role-dict/role-dict.component';
+import { ProjectDictComponent } from './dictionary/project-dict/project-dict.component';
+import { SpecDictComponent } from './dictionary/spec-dict/spec-dict.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavComponent,
     ClientsDictComponent,
-    TypeprojDictComponent
+    TypeprojDictComponent,
+    AutorizationComponent,
+    RoleDictComponent,
+    ProjectDictComponent,
+    SpecDictComponent
   ],
   imports: [
     BrowserModule,
     ClarityModule,
     BrowserAnimationsModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

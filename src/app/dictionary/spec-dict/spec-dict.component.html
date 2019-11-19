@@ -1,0 +1,69 @@
+<h2 style="margin-top:0;">Проекты</h2>
+<div  class="btn-group btn-primary ">
+  <button class="btn " (click)="openDialog()"><clr-icon shape="plus-circle"></clr-icon></button>
+</div>
+
+<clr-datagrid>
+  <clr-dg-column>Роль на проекте</clr-dg-column>
+  <clr-dg-column>Тип проекта</clr-dg-column>
+  <clr-dg-column>Доля в проектной трудоемкости</clr-dg-column>
+  <clr-dg-column>Численность</clr-dg-column>
+  <clr-dg-column>Период начала действия</clr-dg-column>
+
+  <clr-dg-column></clr-dg-column>
+
+  <clr-dg-row *ngFor="let spec of specialists" >
+    <clr-dg-cell>{{spec.specialtytype_name}}</clr-dg-cell>
+    <clr-dg-cell>{{spec.projecttype_name}}</clr-dg-cell>
+    <clr-dg-cell>{{spec.specialist_part}}</clr-dg-cell>
+    <clr-dg-cell>{{spec.specialist_quantity}}</clr-dg-cell>
+    <clr-dg-cell>{{spec.period}}</clr-dg-cell>
+    <clr-dg-cell>
+      <div style="float:right" class="btn-group btn-primary ">
+        <button class="btn " (click)="openDialog(spec.specialist_id)"><clr-icon shape="note"></clr-icon></button>
+        <button class="btn btn-danger"> <clr-icon shape="error-standard"></clr-icon></button>
+      </div>
+    </clr-dg-cell>
+
+  </clr-dg-row>
+
+
+</clr-datagrid>
+
+<clr-modal [(clrModalOpen)]="editModal" [clrModalClosable]="false">
+  <h3 class="modal-title"  *ngIf="edit.project_id">Редиктирование клиента</h3>
+  <h3 class="modal-title"  *ngIf="!edit.project_id">Добавление клиента</h3>
+  <div class="modal-body">
+
+    <form clrForm>
+      <span class="clr-sr-only">Tabbing through form inputs will trigger validation messages to be read aloud.</span>
+      <clr-input-container>
+        <label >Наименование:</label>
+        <input style="margin-light: 50px;" clrInput type="text" value="{{edit.project_name}}"  name="project_name" required />
+        <clr-control-error>We need your first name for legal compliance</clr-control-error>
+      </clr-input-container>
+      <clr-select-container>
+        <label>Тип проекта:</label>
+        <select clrSelect name="projecttype_id" class="clr-select" [(ngModel)]="edit.projecttype_id">
+          <option *ngFor="let type of getTypesList()" [value]="type.id">{{type.name}}</option>
+        </select>
+      </clr-select-container>
+      <clr-input-container>
+        <label >Вероятность реализации:</label>
+        <input clrInput  type="text" [(ngModel)]="edit.project_realizprob" name="project_realizprob"  placeholder="Введите вероятность реализации"/>
+      </clr-input-container>
+      <clr-input-container>
+        <label >Коэфициент трудоемкости:</label>
+        <input clrInput  type="text" [(ngModel)]="edit.project_laborcoef" name="project_laborcoef"  placeholder="Введите коэфициент трудоемкости"/>
+      </clr-input-container>
+    </form>
+  </div>
+
+
+
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline" (click)="closeDialog()">Cancel</button>
+    <button type="button" class="btn btn-primary" >Save</button>
+
+  </div>
+</clr-modal>

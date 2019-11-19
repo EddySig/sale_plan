@@ -1,13 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 
-import {ClientDctServService} from 'src/app/clients-dict/services/client-dct-serv.service';
-import {Client} from '../core';
+import {ClientDctServService} from 'src/app/dictionary/clients-dict/services/client-dct-serv.service';
+import {Client} from '../../core';
+
 @Component({
   selector: 'app-clients-dict',
   templateUrl: './clients-dict.component.html',
   styleUrls: ['./clients-dict.component.css']
 })
 export class ClientsDictComponent implements OnInit {
+
   clients;
   editModal = false;
   removeModal = false;
@@ -20,13 +22,11 @@ export class ClientsDictComponent implements OnInit {
   }
 
   openDialog(clientId = 0): void {
-    var client = this.clientService.get(clientId);
+    const client = this.clientService.get(clientId);
     if (client !== undefined) {
       this.edit = this.clientService.get(clientId);
     }
-
     this.editModal = true;
-
   }
   closeDialog(): void {
     this.editModal = false;

@@ -1,10 +1,13 @@
 <h2 style="margin-top:0;">Клиенты</h2>
 <div  class="btn-group btn-primary ">
-  <button class="btn " (click)="openDialog()"><clr-icon shape="cog"></clr-icon></button>
+  <button class="btn " (click)="openDialog()"><clr-icon shape="plus-circle"></clr-icon></button>
 </div>
 
 <clr-datagrid>
-  <clr-dg-column >Код</clr-dg-column>
+  <clr-dg-column >
+    Код
+
+  </clr-dg-column>
   <clr-dg-column>Наименование
 
 
@@ -16,7 +19,7 @@
     <clr-dg-cell>{{client.name}}</clr-dg-cell>
     <clr-dg-cell>
       <div style="float:right" class="btn-group btn-primary ">
-        <button class="btn " (click)="openDialog(client.id)"><clr-icon shape="cog"></clr-icon></button>
+        <button class="btn " (click)="openDialog(client.id)"><clr-icon shape="note"></clr-icon></button>
         <button class="btn btn-danger"> <clr-icon shape="error-standard"></clr-icon></button>
       </div>
     </clr-dg-cell>

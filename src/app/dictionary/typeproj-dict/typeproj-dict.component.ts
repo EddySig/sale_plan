@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import {Typeproj} from '../core';
+import {Typeproj} from '../../core';
 import {TypeprojDictServService} from './services/typeproj-dict-serv.service';
 
 @Component({

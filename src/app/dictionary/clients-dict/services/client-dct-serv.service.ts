@@ -5,7 +5,7 @@ import {Client} from 'src/app/core/models/clients';
   providedIn: 'root'
 })
 export class ClientDctServService {
-  private clientList: Client[] = [ { id: 1, code: 'rks', name: 'РКС' },
+  private clientList: Client[] = [ { id: 1, code: 'aks', name: 'АКС' },
     { id: 2, code: 'ertel', name: 'Эр-телеком' },
     { id: 3, code: 'vost', name: 'Vostok' },
     { id: 4, code: 'tek', name: 'ТЭК' },

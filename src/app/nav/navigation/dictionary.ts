@@ -11,17 +11,17 @@ export const dictionary = [
   },
   {
     name: 'Роли на проекте',
-    link: '#',
+    link: '/roles',
     description: 'Справочник ролей на проекте'
   },
   {
     name: 'Проекты',
-    link: '#',
+    link: '/projects',
     description: 'Справочник типов проектов'
   },
   {
     name: 'Специалисты',
-    link: '#',
+    link: '/spec',
     description: 'Справочник специалистов'
   },
   {
