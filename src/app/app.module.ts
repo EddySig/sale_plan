@@ -13,6 +13,7 @@ import { AutorizationComponent } from './autorization/autorization.component';
 import { RoleDictComponent } from './dictionary/role-dict/role-dict.component';
 import { ProjectDictComponent } from './dictionary/project-dict/project-dict.component';
 import { SpecDictComponent } from './dictionary/spec-dict/spec-dict.component';
+import { SettingsDictComponent } from './dictionary/settings-dict/settings-dict.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { SpecDictComponent } from './dictionary/spec-dict/spec-dict.component';
     AutorizationComponent,
     RoleDictComponent,
     ProjectDictComponent,
-    SpecDictComponent
+    SpecDictComponent,
+    SettingsDictComponent
   ],
   imports: [
     BrowserModule,

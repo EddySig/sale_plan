@@ -1,0 +1,71 @@
+<h2 style="margin-top:0;">Специалисты</h2>
+<div  class="btn-group btn-primary ">
+  <button class="btn " (click)="openDialog()"><clr-icon shape="plus-circle"></clr-icon></button>
+</div>
+
+<clr-datagrid>
+  <clr-dg-column>% загрузки БС на внеш. проект</clr-dg-column>
+  <clr-dg-column>Трудоемкость за 1 месяц, ч</clr-dg-column>
+  <clr-dg-column>Цена часа, руб</clr-dg-column>
+  <clr-dg-column>С</clr-dg-column>
+  <clr-dg-column>По</clr-dg-column>
+
+  <clr-dg-column></clr-dg-column>
+
+  <clr-dg-row *ngFor="let sett of settings" >
+    <clr-dg-cell>{{sett.resourceplanmain_cload}}</clr-dg-cell>
+    <clr-dg-cell>{{sett.resourceplanmain_labor}}</clr-dg-cell>
+    <clr-dg-cell>{{sett.resourceplanmain_hourcost}}</clr-dg-cell>
+    <clr-dg-cell>{{sett.period_beg}}</clr-dg-cell>
+    <clr-dg-cell>{{sett.period_end}}</clr-dg-cell>
+    <clr-dg-cell>
+      <div style="float:right" class="btn-group btn-primary ">
+        <button class="btn " (click)="openDialog(sett.resourceplanmain_id)"><clr-icon shape="note"></clr-icon></button>
+        <button class="btn btn-danger"> <clr-icon shape="error-standard"></clr-icon></button>
+      </div>
+    </clr-dg-cell>
+
+  </clr-dg-row>
+
+
+</clr-datagrid>
+
+<clr-modal [(clrModalOpen)]="editModal" [clrModalClosable]="false">
+  <h3 class="modal-title"  *ngIf="edit.resourceplanmain_id">Редиктирование клиента</h3>
+  <h3 class="modal-title"  *ngIf="!edit.resourceplanmain_id">Добавление клиента</h3>
+  <div class="modal-body">
+
+    <form clrForm>
+      <span class="clr-sr-only">Tabbing through form inputs will trigger validation messages to be read aloud.</span>
+
+      <clr-input-container>
+        <label >% загрузки БС на внеш. проект:</label>
+        <input clrInput  type="text" [(ngModel)]="edit.resourceplanmain_cload" name="resourceplanmain_cload"  placeholder="Введите вероятность реализации"/>
+      </clr-input-container>
+      <clr-input-container>
+        <label >Трудоемкость за 1 месяц, ч:</label>
+        <input clrInput  type="text" [(ngModel)]="edit.resourceplanmain_labor" name="resourceplanmain_labor"  placeholder="Введите вероятность реализации"/>
+      </clr-input-container>
+      <clr-input-container>
+        <label >Цена часа, руб:</label>
+        <input clrInput  type="text" [(ngModel)]="edit.resourceplanmain_hourcost" name="resourceplanmain_hourcost"  placeholder="Введите вероятность реализации"/>
+      </clr-input-container>
+      <clr-date-container>
+        <label >С:</label>
+        <input type="date" clrDate name="period_beg" [(ngModel)]="edit.period_beg">
+      </clr-date-container>
+      <clr-date-container>
+        <label >По:</label>
+        <input type="date" clrDate name="period_end" [(ngModel)]="edit.period_end">
+      </clr-date-container>
+    </form>
+  </div>
+
+
+
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline" (click)="closeDialog()">Cancel</button>
+    <button type="button" class="btn btn-primary" >Save</button>
+
+  </div>
+</clr-modal>

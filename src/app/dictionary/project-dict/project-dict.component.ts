@@ -27,10 +27,10 @@ export class ProjectDictComponent implements OnInit {
   ngOnInit() {
   }
 
-  getClientList(){
+  getClientList() {
     return this.projService.getClients();
   }
-  getTypesList(){
+  getTypesList() {
     return this.projService.getTypes();
   }
   openDialog(projId = 0): void {

@@ -1,0 +1,8 @@
+::ng-deep .clr-control-container {
+  max-width: 50%;
+  margin-left: 50px;
+}
+
+::ng-deep input, select{
+  width: 200px;
+}

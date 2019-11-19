@@ -26,7 +26,7 @@ export const dictionary = [
   },
   {
     name: 'Настройки',
-    link: '#',
+    link: '/settings',
     description: 'Справочник настроек'
   }
 ];
