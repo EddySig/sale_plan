@@ -14,6 +14,7 @@ import { RoleDictComponent } from './dictionary/role-dict/role-dict.component';
 import { ProjectDictComponent } from './dictionary/project-dict/project-dict.component';
 import { SpecDictComponent } from './dictionary/spec-dict/spec-dict.component';
 import { SettingsDictComponent } from './dictionary/settings-dict/settings-dict.component';
+import { GridComponent } from './templates/grid/grid.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { SettingsDictComponent } from './dictionary/settings-dict/settings-dict.
     RoleDictComponent,
     ProjectDictComponent,
     SpecDictComponent,
-    SettingsDictComponent
+    SettingsDictComponent,
+    GridComponent
   ],
   imports: [
     BrowserModule,

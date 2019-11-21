@@ -1,0 +1,21 @@
+<clr-datagrid>
+  <!-- Struct - отдельный файл с заполнением шапки таблицы должен создаваться для каждого грида-->
+  <ng-container *ngFor="let struct of structs">
+    <clr-dg-column *ngIf="itsID(struct.value)">{{struct.name}}</clr-dg-column>
+  </ng-container>
+
+  <clr-dg-row *ngFor="let row of rows" >
+    <ng-container *ngFor="let cell of row | keyvalue">
+      <clr-dg-cell *ngIf=itsID(cell.key)> {{cell.value}} </clr-dg-cell>
+    </ng-container>
+
+    <clr-dg-cell>
+      <div style="float:right" class="btn-group btn-primary ">
+        <button class="btn " (click)="open(row.id)"><clr-icon shape="note"></clr-icon></button>
+        <button class="btn btn-danger"> <clr-icon shape="error-standard"></clr-icon></button>
+      </div>
+    </clr-dg-cell>
+
+  </clr-dg-row>
+
+</clr-datagrid>

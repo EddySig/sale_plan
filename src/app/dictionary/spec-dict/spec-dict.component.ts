@@ -39,6 +39,7 @@ export class SpecDictComponent implements OnInit {
     this.removeModal = false;
     this.edit = {
       specialist_id: 0,
+      specialtytype_id: 0,
       specialtytype_name: '',
       specialist_part: 0,
       specialist_quantity: 0,

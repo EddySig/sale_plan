@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import {ClientDctServService} from 'src/app/dictionary/clients-dict/services/client-dct-serv.service';
 import {Client} from '../../core';
+import {structs} from './struct/structs';
 
 @Component({
   selector: 'app-clients-dict',
@@ -10,6 +11,7 @@ import {Client} from '../../core';
 })
 export class ClientsDictComponent implements OnInit {
 
+  structs = structs;
   clients;
   editModal = false;
   removeModal = false;
@@ -22,6 +24,7 @@ export class ClientsDictComponent implements OnInit {
   }
 
   openDialog(clientId = 0): void {
+    console.log(clientId);
     const client = this.clientService.get(clientId);
     if (client !== undefined) {
       this.edit = this.clientService.get(clientId);
