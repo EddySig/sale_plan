@@ -4,7 +4,11 @@
 </div>
 
 <app-grid [structs]="structs" [rows]="clients" (childEvent)="openDialog($event)"></app-grid>
-
+<app-dialog 
+    [structs]="structs" 
+    [rows]="clients"  
+    (close)="closeDialog()"
+    ></app-dialog>
 <clr-modal [(clrModalOpen)]="editModal" [clrModalClosable]="false">
   <h3 class="modal-title"  *ngIf="edit.id">Редиктирование клиента</h3>
   <h3 class="modal-title"  *ngIf="!edit.id">Добавление клиента</h3>

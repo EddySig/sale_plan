@@ -15,6 +15,7 @@ import { ProjectDictComponent } from './dictionary/project-dict/project-dict.com
 import { SpecDictComponent } from './dictionary/spec-dict/spec-dict.component';
 import { SettingsDictComponent } from './dictionary/settings-dict/settings-dict.component';
 import { GridComponent } from './templates/grid/grid.component';
+import { DialogComponent } from './templates/dialog/dialog.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { GridComponent } from './templates/grid/grid.component';
     ProjectDictComponent,
     SpecDictComponent,
     SettingsDictComponent,
-    GridComponent
+    GridComponent,
+    DialogComponent
   ],
   imports: [
     BrowserModule,
