@@ -15,7 +15,7 @@ export class ClientsDictComponent implements OnInit {
   clients;
   editModal = false;
   removeModal = false;
-  edit: Client = { id: 0, code: '', name: '' } as Client;
+  edit: Client = { client_id: 0, client_code: '', client_name: '' } as Client;
   constructor(
     private clientService: ClientDctServService
   ) { this.clients = clientService.getList(); }
@@ -23,18 +23,20 @@ export class ClientsDictComponent implements OnInit {
   ngOnInit() {
   }
 
-  openDialog(clientId = 0): void {
-    console.log(clientId);
-    const client = this.clientService.get(clientId);
+  // tslint:disable-next-line:no-unnecessary-initializer
+  openDialog(elem: Client = { client_id: 0, client_code: '', client_name: '' }): void {
+    console.log(elem);
+    const client = this.clientService.get(elem.client_id);
     if (client !== undefined) {
-      this.edit = this.clientService.get(clientId);
+      this.edit = this.clientService.get(elem.client_id);
     }
+    console.log(this.edit);
     this.editModal = true;
   }
   closeDialog(): void {
     this.editModal = false;
     this.removeModal = false;
-    this.edit = { id: 0, code: '', name: '' };
+    this.edit = { client_id: 0, client_code: '', client_name: '' };
   }
   confirmCloseDialog(): void {
     this.removeModal = true;

@@ -4,32 +4,7 @@
 </div>
 
 <app-grid [structs]="structs" [rows]="clients" (childEvent)="openDialog($event)"></app-grid>
-<app-dialog 
-    [structs]="structs" 
-    [rows]="clients"  
-    (close)="closeDialog()"
-    ></app-dialog>
-<clr-modal [(clrModalOpen)]="editModal" [clrModalClosable]="false">
-  <h3 class="modal-title"  *ngIf="edit.id">Редиктирование клиента</h3>
-  <h3 class="modal-title"  *ngIf="!edit.id">Добавление клиента</h3>
-  <div class="modal-body">
-  <form clrForm>
-    <clr-input-container>
-      <input clrInput type="hidden" [(ngModel)]="edit.id" name="client_id"/>
-      <label style="margin-right: 15px">Код:</label>
-      <input clrInput  type="text" [(ngModel)]="edit.code" name="client_code"  placeholder="Введите Код"/>
-    </clr-input-container>
-    <clr-input-container>
-      <label style="margin-right: 15px">Наименование:</label>
-      <input clrInput  type="text" [(ngModel)]="edit.name" name="client_name"  placeholder="Введите Наименование"/>
-    </clr-input-container>
-  </form>
-  </div>
+
+  <app-dialog  [struct]="structs" [edit]="edit" [editModal]="editModal" (close)="closeDialog()"></app-dialog>
 
 
-
-  <div class="modal-footer">
-    <button type="button" class="btn btn-outline" (click)="closeDialog()">Cancel</button>
-    <button type="button" class="btn btn-primary" >Save</button>
-  </div>
-</clr-modal>

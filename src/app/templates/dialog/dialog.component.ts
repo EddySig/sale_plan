@@ -8,6 +8,7 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 export class DialogComponent implements OnInit {
   @Input()edit;
   @Input()struct;
+  @Input()editModal;
   @Output() close = new EventEmitter();
 
   constructor() { }

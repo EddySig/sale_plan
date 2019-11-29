@@ -9,9 +9,13 @@ export class GridComponent implements OnInit {
   @Input()structs;
   @Input()rows;
   @Output() childEvent = new EventEmitter<number>();
+  private id;
   constructor() { }
 
   ngOnInit() {
+  }
+  getIDrows() {
+    return 0;
   }
   itsID(str: string) {
     let isID = false;

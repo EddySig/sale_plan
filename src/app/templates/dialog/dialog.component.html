@@ -4,8 +4,10 @@
   <div class="modal-body">
     <form clrForm>
       <clr-input-container *ngFor="let field of struct">
-        <label style="margin-right: 15px" *ngIf="field.type !== 'not'">{{field.name}}</label>
-        <!-- <input clrInput  type="{{field.type}}" [(ngModel)]="edit[field.value]" name="{{field.value}}"  />-->
+
+          <label style="margin-right: 15px" >{{field.name}}</label>
+          <input clrInput   type="{{field.type}}" [(ngModel)]="edit[field.value]" name="{{field.value}}"  />
+
       </clr-input-container>
 
     </form>
